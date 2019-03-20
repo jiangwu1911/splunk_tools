@@ -46,6 +46,7 @@ def main():
     search = opts.args[0]
     service = connect(**opts.kwargs)
     socket.setdefaulttimeout(None)
+
     response = service.jobs.oneshot(search)
 
     pretty(response)
