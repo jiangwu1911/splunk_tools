@@ -48,7 +48,7 @@ def disconnect(conn):
     conn.close
 
 
-# 从数据库中读取未发送的告警, 发送到自动化平台
+# 单独线程, 不断从数据库中读取未发送的告警, 发送到自动化平台
 class Publisher(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
