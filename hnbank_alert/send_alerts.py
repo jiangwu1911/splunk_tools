@@ -69,7 +69,9 @@ def read_alerts_from_splunk():
                           int(content.get('digest_mode', '0')),
                           int(content.get('severity', '0')),
                           content.get('expiration_time_rendered', ''),
-                          strftime("%Y-%m-%d %H:%M:%S", gmtime())                           
+                          # Time insert using timezone GMT
+                          # SELECT datetime(create_time,'localtime') FROM alerts can get the correct value
+                          strftime("%Y-%m-%d %H:%M:%S", gmtime())
                         ])
 
     db.commit()

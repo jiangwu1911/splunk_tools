@@ -14,3 +14,5 @@ CREATE TABLE alerts (
     publish_time        TEXT,
     recovery_time       TEXT
 );
+
+CREATE INDEX sid_idx ON alerts(sid);
