@@ -1,0 +1,27 @@
+splunk-sdk只支持python 3, 所以要首先安装python3
+
+创建新的 env
+    $ python3.6 -m venv env05
+    $ env05/bin/activate
+
+安装requests
+    $ pip install requests
+
+从 http://dev.splunk.com/python 下载 splunk-sdk-python, 解压, 然后增加环境变量 
+    export PYTHONPATH=/home/jwu/splunk_alert/splunk-sdk-python-1.6.6
+
+在home目录下创建.splunkrc文件, 内容是:
+    ost=192.168.206.214
+    # Splunk admin port (default: 8089)
+    port=8089
+    # Splunk username
+    username=admin
+    # Splunk password
+    password=xxxxxxxx
+    # Access scheme (default: https)
+    scheme=https
+    # Splunk version number
+    version=7.0
+
+运行程序
+    $ python send_alerts.py
