@@ -59,7 +59,8 @@ def read_alerts_from_splunk():
             logger.debug("")
 
             if group.name != "-":
-                cur.execute("INSERT INTO alerts(sid, alert_group, savedsearch_name, alert_type, digest_mode, \
+                cur.execute("INSERT OR IGNORE INTO alerts( \
+                        sid, alert_group, savedsearch_name, alert_type, digest_mode, \
                         severity, expiration_time, create_time) \
                         VALUES(?,?,?,?,?,?,?,?)",
                         [ content.get('sid', ''),

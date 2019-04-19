@@ -15,4 +15,4 @@ CREATE TABLE alerts (
     recovery_time       TEXT
 );
 
-CREATE INDEX sid_idx ON alerts(sid);
+CREATE UNIQUE INDEX sid_idx ON alerts(sid);
