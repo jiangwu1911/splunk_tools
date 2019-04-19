@@ -122,7 +122,7 @@ def send_alert(alert_id, severity, message):
                 "content": message,
                 "target": "splunk"
              },
-             "level": level_mapping.get(severity),
+             "level": 1,
              "alert_dims": {},
              "value": "-",
              "alert_receivers": [{'name' : 'chenmi','method' : 'sms'}]
