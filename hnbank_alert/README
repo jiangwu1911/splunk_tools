@@ -23,5 +23,8 @@ splunk-sdk只支持python 3, 所以要首先安装python3
     # Splunk version number
     version=7.0
 
+初始化数据库 
+    $ sqlite3 alerts.db < create_table.sql
+
 运行程序
     $ python send_alerts.py
