@@ -1,0 +1,15 @@
+splunk-sdk只支持python 3, 所以要首先安装python3
+
+创建新的 env
+    # yum install python-virtualenv
+    $ virtualenv env05
+    $ env05/bin/activate
+
+安装requests
+    $ pip install -r requirements.txt 
+
+初始化数据库 
+    $ sqlite3 alerts.db < create_table_web.sql
+
+运行程序
+    $ python send_alerts.py
