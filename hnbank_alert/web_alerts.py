@@ -29,9 +29,6 @@ RULE_ID="5c6136bf1c79f96ddd991204"
 ORG=5001
 SERVER_IP="192.168.206.106"
 
-reload(sys)
-sys.setdefaultencoding('utf8')
-
 try:
     from utils import parse
 except ImportError:
@@ -74,9 +71,7 @@ class Publisher(threading.Thread):
             search_name = row[1]
             host = row[2]
             content = row[3]
-            message = "告警类型:".encode("utf8") + search_name \
-                      + "主机:".encode("utf8") + host \
-                      + "内容:".encode("utf8") + content
+            message = "告警类型: %s\n主机:%s\n内容:%s" % (search_name, host, content)
             logger.debug(message)
     
             result = self.send_alert(alert_id, message);
